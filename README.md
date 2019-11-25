@@ -4,6 +4,7 @@
 
 话不多说，来看如何进行快速网络请求
 GET:
+
         HttpHelper.getInstance().get("/test", new HashMap<>(), new OnSuccessAndFaultListener() {
             @Override
             public void onSuccess(Object result) {
@@ -16,6 +17,7 @@ GET:
             }
         });
 Post:
+       
        HttpHelper.getInstance().rxPost("/test", new HashMap<>(), new OnSuccessAndFaultListener() {
             @Override
             public void onSuccess(Object result) {
@@ -29,6 +31,7 @@ Post:
         });
         
 DownLoad:(实现下载，记得申请权限哦)
+      
       HttpHelper.getInstance().rxDownload("/test", new DownHttpCallback() {
             @Override
             protected void onProgress(Integer result) {
@@ -42,7 +45,8 @@ DownLoad:(实现下载，记得申请权限哦)
         },"fileName");
         
 upLoad:上传文件
- HttpHelper.getInstance().rxUpload("", new UploadProgressRequestBody(new File("11"), new HashMap<>(), new ProgressListener() {
+ 
+ 	HttpHelper.getInstance().rxUpload("", new UploadProgressRequestBody(new File("11"), new HashMap<>(), new ProgressListener() {
             @Override
             public void onProgress(long writtenLength, long totalLength, boolean isFinish) {
 
@@ -60,21 +64,24 @@ upLoad:上传文件
         });
 
 如何使用：
-第一步 引入
-allprojects {
+第一步 引入：
+
+	allprojects {
 		repositories {
 			...
 			maven { url 'https://jitpack.io' }
 		}
 	}
   
-第二步 引入依赖
-dependencies {
+第二步 引入依赖：
+
+	dependencies {
 	        implementation 'com.github.nigelly:coreLib:v1.0.0'
 	}
   
 第三步请在你的Application里面进行初始化:
-ProjectInit.init(this)
+	
+	ProjectInit.init(this)
                 .withApiHostSing("你的Api地址")
                 .withAppIsDebug(true)//正式发布请改为false
                 .withApplicationContext(this)
