@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">chainStore</string>
+    <string name="homePage">首页</string>
+    <string name="release">发布</string>
+    <string name="message">消息</string>
+    <string name="personalCenter">个人中心</string>
+</resources>

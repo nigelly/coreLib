@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RadioGroup xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#FFF"
+    android:gravity="center_horizontal"
+    android:orientation="horizontal">
+
+    <RadioButton
+        android:id="@+id/workPlatform"
+        style="@style/BottomBarButtonTheme"
+        android:checked="true"
+        android:drawableTop="@drawable/bottom_bar_icon_a"
+        android:text="@string/homePage" />
+
+    <RadioButton
+        android:id="@+id/statistics"
+        android:drawableTop="@drawable/bottom_bar_icon_a"
+        style="@style/BottomBarButtonTheme"
+        android:text="@string/release" />
+
+    <RadioButton
+        android:id="@+id/message"
+        android:drawableTop="@drawable/bottom_bar_icon_a"
+        style="@style/BottomBarButtonTheme"
+        android:text="@string/message" />
+
+    <RadioButton
+        android:id="@+id/mine"
+        android:drawableTop="@drawable/bottom_bar_icon_a"
+        style="@style/BottomBarButtonTheme"
+        android:text="@string/personalCenter" />
+</RadioGroup>
