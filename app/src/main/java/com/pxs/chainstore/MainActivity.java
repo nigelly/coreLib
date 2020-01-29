@@ -41,7 +41,7 @@ public class MainActivity extends BaseActivity {
 
     @Override
     protected void init() {
-        //test
+        //test push
     }
 
     public void getUserInfo() {
