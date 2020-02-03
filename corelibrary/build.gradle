@@ -28,16 +28,11 @@ dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
     implementation 'androidx.appcompat:appcompat:1.1.0'
-    testImplementation 'junit:junit:4.12'
-    androidTestImplementation 'androidx.test.ext:junit:1.1.0'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
 
     api 'com.squareup.retrofit2:retrofit:2.4.0'
     api 'com.squareup.retrofit2:converter-gson:2.4.0'
     api 'com.squareup.retrofit2:converter-scalars:2.4.0'
-
     api 'com.google.code.gson:gson:2.8.5'
-
 
     //
     api 'com.jeremyliao:live-event-bus-x:1.4.4'
@@ -54,5 +49,4 @@ dependencies {
 
     api 'cat.ereza:customactivityoncrash:2.2.0'
 
-    api 'com.qmuiteam:qmui:1.4.0'
 }

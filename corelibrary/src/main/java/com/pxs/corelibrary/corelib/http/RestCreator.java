@@ -25,7 +25,7 @@ public final class RestCreator {
                 .Builder()
                 .baseUrl(BASE_URL)
                 .addConverterFactory(ScalarsConverterFactory.create())
-                .client(OkHttpHolder.OK_HTTP_CLIENT)
+                .client(OkHttpHolder.OK_HTTP_CLIENT())
                 .build();
 
         private static Retrofit RETROFIT_CUSTOM_INTERCEPTOR(Interceptor interceptor) {
@@ -40,21 +40,34 @@ public final class RestCreator {
 
     //单独配置okhttp
     private static final class OkHttpHolder {
+
         private static final int TIME_OUT = 60;
-        private static final OkHttpClient OK_HTTP_CLIENT = new OkHttpClient.Builder()
-                .connectTimeout(TIME_OUT, TimeUnit.SECONDS)
-                .build();
+
+        private static OkHttpClient.Builder builder = null;
+
+        private static OkHttpClient OK_HTTP_CLIENT() {
+            if (builder == null) {
+                return new OkHttpClient.Builder()
+                        .connectTimeout(TIME_OUT, TimeUnit.SECONDS)
+                        .build();
+            }
+            return builder.build();
+        }
 
         private static OkHttpClient OK_HTTP_CLIENT_INTERCEPTOR(Interceptor interceptor) {
-            return new OkHttpClient.Builder()
-                    .addInterceptor(interceptor)
-                    .connectTimeout(TIME_OUT, TimeUnit.SECONDS)
-                    .build();
+            if (interceptor != null) {
+                return new OkHttpClient.Builder()
+                        .addInterceptor(interceptor)
+                        .connectTimeout(TIME_OUT, TimeUnit.SECONDS)
+                        .build();
+            }
+            return builder.build();
         }
     }
 
     //提供一个接口让调用者得到retrofit对象
     private static final class RestServiceHolder {
+
         private static final RestService REST_SERVICE = RetrofitHolder.RETROFIT_CLIENT.create(RestService.class);
 
         private static RestService getRestServiceInterceptor(Interceptor interceptor) {
