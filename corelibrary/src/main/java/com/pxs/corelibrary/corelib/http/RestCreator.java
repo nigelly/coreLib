@@ -15,13 +15,13 @@ import retrofit2.Retrofit;
 import retrofit2.converter.scalars.ScalarsConverterFactory;
 
 
-public final class RestCreator {
+public  class RestCreator {
 
-    private static final class RetrofitHolder {
+    private static  class RetrofitHolder {
 
-        private static final String BASE_URL = ProjectInit.getConfiguration(ConfigKeys.API_HOST_SING);
+        private static  String BASE_URL = ProjectInit.getConfiguration(ConfigKeys.API_HOST_SING);
 
-        private static final Retrofit RETROFIT_CLIENT = new Retrofit
+        private static  Retrofit RETROFIT_CLIENT = new Retrofit
                 .Builder()
                 .baseUrl(BASE_URL)
                 .addConverterFactory(ScalarsConverterFactory.create())
@@ -39,7 +39,7 @@ public final class RestCreator {
     }
 
     //单独配置okhttp
-    private static final class OkHttpHolder {
+    private static  class OkHttpHolder {
 
         private static final int TIME_OUT = 60;
 
@@ -66,9 +66,9 @@ public final class RestCreator {
     }
 
     //提供一个接口让调用者得到retrofit对象
-    private static final class RestServiceHolder {
+    private static  class RestServiceHolder {
 
-        private static final RestService REST_SERVICE = RetrofitHolder.RETROFIT_CLIENT.create(RestService.class);
+        private static  RestService REST_SERVICE = RetrofitHolder.RETROFIT_CLIENT.create(RestService.class);
 
         private static RestService getRestServiceInterceptor(Interceptor interceptor) {
             return RetrofitHolder.RETROFIT_CUSTOM_INTERCEPTOR(interceptor).create(RestService.class);

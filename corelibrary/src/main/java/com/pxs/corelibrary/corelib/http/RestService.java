@@ -20,13 +20,16 @@ public interface RestService {
     @GET
     Call<String> get(@Url String url, @QueryMap Map<String, Object> params);
 
-    @Headers({"Content-Type: application/json", "Accept: application/json"})
     @FormUrlEncoded
     @POST
     Call<String> post(@Url String url, @FieldMap Map<String, Object> params);
 
     @POST
     Call<String> postRaw(@Url String url, @Body RequestBody params);
+
+    @Headers({"Content-Type: application/json", "Accept: application/json"})
+    @POST
+    Call<String> postMapRaw(@Url String url,@Body RequestBody params);
 
     @Streaming
     @GET
