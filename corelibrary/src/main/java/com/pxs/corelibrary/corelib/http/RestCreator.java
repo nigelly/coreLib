@@ -69,10 +69,10 @@ public class RestCreator {
                                 .connectTimeout(TIME_OUT, TimeUnit.SECONDS)
                                 .build();
                     }
-                    Logger.print("use old interceptor");
+                    Logger.print("use old interceptor" + simpleName);
                     return clientInterceptor;
                 } else {
-                    Logger.print("use new interceptor");
+                    Logger.print("use new interceptor" + simpleName);
                     simpleName = interceptor.getClass().getSimpleName();
                     return clientInterceptor = new OkHttpClient.Builder()
                             .addInterceptor(interceptor)
