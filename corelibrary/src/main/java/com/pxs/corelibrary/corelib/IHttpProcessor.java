@@ -6,6 +6,7 @@ import com.pxs.corelibrary.corelib.http.rxcallback.UploadProgressRequestBody;
 import java.util.Map;
 
 import okhttp3.Interceptor;
+import okhttp3.RequestBody;
 
 
 public interface IHttpProcessor {
@@ -24,5 +25,5 @@ public interface IHttpProcessor {
 
     void rxDownload(String url, DownHttpCallback downHttpCallback,String fileName);
 
-    void rxUpload(String url, UploadProgressRequestBody requestBody, OnSuccessAndFaultListener listener);
+    void rxUpload(String url, RequestBody requestBody, OnSuccessAndFaultListener listener);
 }

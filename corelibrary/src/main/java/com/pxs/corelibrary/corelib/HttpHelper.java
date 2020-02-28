@@ -6,6 +6,7 @@ import com.pxs.corelibrary.corelib.http.rxcallback.UploadProgressRequestBody;
 import java.util.Map;
 
 import okhttp3.Interceptor;
+import okhttp3.RequestBody;
 
 
 public class HttpHelper implements IHttpProcessor {
@@ -64,7 +65,7 @@ public class HttpHelper implements IHttpProcessor {
     }
 
     @Override
-    public void rxUpload(String url, UploadProgressRequestBody requestBody, OnSuccessAndFaultListener listener) {
+    public void rxUpload(String url, RequestBody requestBody, OnSuccessAndFaultListener listener) {
         mHttpProcessor.rxUpload(url,requestBody,listener);
     }
 

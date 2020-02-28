@@ -43,7 +43,7 @@ public class RestCreator {
     //单独配置okhttp
     private static class OkHttpHolder {
 
-        private static final int TIME_OUT = 60;
+        private static final int TIME_OUT = 20;
 
         private static OkHttpClient client = null;
 

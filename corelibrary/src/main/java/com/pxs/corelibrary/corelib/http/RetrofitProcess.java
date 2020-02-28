@@ -9,6 +9,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import okhttp3.Interceptor;
+import okhttp3.RequestBody;
 
 
 public class RetrofitProcess implements IHttpProcessor {
@@ -132,7 +133,7 @@ public class RetrofitProcess implements IHttpProcessor {
     }
 
     @Override
-    public void rxUpload(String url, UploadProgressRequestBody requestBody, final OnSuccessAndFaultListener listener) {
+    public void rxUpload(String url, RequestBody requestBody, final OnSuccessAndFaultListener listener) {
         RestClient.create().url(url)
                 .body(requestBody)
                 .listener(listener)
